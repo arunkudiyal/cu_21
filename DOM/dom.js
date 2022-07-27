@@ -126,15 +126,39 @@
 // NOTE TAKING APPLICATION
 
 // Access the text value of the input when the button is clicked
-document.getElementById('submit-btn').addEventListener('click', (e) => {
-    e.preventDefault()
-    const textValue = document.getElementById('text-input').value
+// document.getElementById('submit-btn').addEventListener('click', (e) => {
+//     e.preventDefault()
+//     const textValue = document.getElementById('text-input').value
     
-    // create a li and add the textValue as textContent
-    const li = document.createElement('li')
-    li.textContent = textValue
-    li.setAttribute('class', 'list-group-item')
+//     // create a li and add the textValue as textContent
+//     const li = document.createElement('li')
+//     li.textContent = textValue
+//     li.setAttribute('class', 'list-group-item')
 
-    // Add the li to the ul
-    document.getElementById('items').appendChild(li)
-})
+//     // Add the li to the ul
+//     document.getElementById('items').appendChild(li)
+// })
+
+
+const posts = [
+    {id: 1, title: 'Post One', body: 'Post One Body'},
+    {id: 2, title: 'Post Two', body: 'Post Two Body'},
+    {id: 3, title: 'Post Three', body: 'Post Three Body'}
+]
+
+const getPosts = () => {
+    setTimeout( () => {
+        for(let i=0; i < posts.length; i++) {
+            console.log(posts[i].body)
+        }
+    }, 2000 )
+}
+
+const createPosts = (post) => {
+    setTimeout(() => {
+        posts.push(post)
+    }, 3000)
+}
+
+createPosts({id: 4, title: 'Post Four', body: 'Post Four Body'})
+getPosts()
